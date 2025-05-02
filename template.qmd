@@ -55,4 +55,33 @@ Comme n'importe quel autre package R, `{dbExplorer}` doit être chargé avec :
 library(dbExplorer)
 ```
 
+## Les "Background jobs" de RStudio
 
+Les "Background Jobs" dans RStudio sont une fonctionnalité qui permet **d’exécuter des scripts R en arrière-plan** sans bloquer l’interface principale de RStudio. 
+
+![](img/Background_jobs.png){fig-align="center"} <br>
+**Quelques caractéristiques** :  
+
+- **Une exécution indépendante** : le job s'exécute dans un processus séparé de la session principale (non bloquant).  
+- **Suivi de l'exécution** : une fenêtre dédiée dans RStudio qui permet de consulter la progression, les messages et l'état du job (traçabilité).
+- **Une reproductibilité garantie** : les jobs relancent le script tel qu'il est au moment de l'appel dans un environnement propre. Le job s'exécute de manière isolé sans polluer l'environnement global.
+
+## Explorer des fichiers parquets
+
+```{.r}
+dbExplorer::ExplorerDossiers("~/CERISE/03-Espace-de-Diffusion/030_Structures_exploitations/3020_Recensements/RA_2010/")
+```
+
+=> Un "background jobs" se lance dans RStudio.
+
+
+## Explorer une base de données
+
+```{.r}
+dbE
+```
+ 
+
+## Création de fichiers parquet à partir d'une BDD
+
+TO DO
