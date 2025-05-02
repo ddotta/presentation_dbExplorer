@@ -66,13 +66,47 @@ Les "Background Jobs" dans RStudio sont une fonctionnalité qui permet **d’ex�
 - **Suivi de l'exécution** : une fenêtre dédiée dans RStudio qui permet de consulter la progression, les messages et l'état du job (traçabilité).
 - **Une reproductibilité garantie** : les jobs relancent le script tel qu'il est au moment de l'appel dans un environnement propre. Le job s'exécute de manière isolé sans polluer l'environnement global.
 
+## Exemple de Background jobs (1/3)
+
+Soit le script simple suivant :  
+
+```{.r}
+library(dplyr)
+
+Sys.sleep(5)
+tab_agregee <- iris |> 
+  summarise(Moy_pet_long = mean(Petal.Length, na.rm = TRUE), .by = Species)
+Sys.sleep(5)
+
+print("Pgm terminé")
+```
+<br>
+
+Ce script peut être lancé via un background job en cliquant sur le bouton `"Start Background job"`.    
+
+## Exemple de Background jobs (2/3)
+
+La fenêtre suivante s'affiche :  
+
+![](img/fenetre_background_jobs.png){fig-align="center"}
+## Exemple de Background jobs (3/3)
+
+En fonction des choix effectués au lancement du background job, les résultats seront (ou pas) disponibles dans l'environnement global de la session R.  
+
+![](img/Env_background_jobs.png)
+
+Si vous avez choisi de stocker les résultats dans un objet "results", voici comment y accéder :  
+
+![](img/get_env_background_jobs.png)
+
+
 ## Explorer des fichiers parquets
 
 ```{.r}
 dbExplorer::ExplorerDossiers("~/CERISE/03-Espace-de-Diffusion/030_Structures_exploitations/3020_Recensements/RA_2010/")
 ```
 
-=> Un "background jobs" se lance dans RStudio.
+=> Un "background job" se lance dans RStudio.
 
 
 ## Explorer une base de données
