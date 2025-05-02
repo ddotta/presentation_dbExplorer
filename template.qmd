@@ -55,6 +55,8 @@ Comme n'importe quel autre package R, `{dbExplorer}` doit être chargé avec :
 library(dbExplorer)
 ```
 
+Avant d'explorer ce package, 2 concepts théoriques sont nécessaires.
+
 ## Les "Background jobs" de RStudio
 
 Les "Background Jobs" dans RStudio sont une fonctionnalité qui permet **d’exécuter des scripts R en arrière-plan** sans bloquer l’interface principale de RStudio. 
@@ -99,6 +101,28 @@ Si vous avez choisi de stocker les résultats dans un objet "results", voici com
 
 ![](img/get_env_background_jobs.png)
 
+## Structure d'une base de données relationnelles
+
+Les bases de données relationnelles sont structurées **de manière hiérarchique et logique**.  
+
+- **La Base de donnée (BDD)** : c'est l'entité principale qui contient l'ensemble des données
+- **Le schéma** : c'est une structure logique à l'intérieur d'une BDD. Il sert à organiser les objets. Il peut être vu comme un *dossier* dans la BDD
+- **Les tables** : ce sont les éléments centraux où les données sont stockées
+- **Les vues** : ce sont des représentations virtuelles de tables (créées au moment des requêtes)
+
+Exemple de structure :  
+
+```
+Base de données : vente_en_ligne
+│
+├── Schéma : public
+│   ├── Table : clients
+│   ├── Table : commandes
+│   └── Table : produits
+│
+└── Schéma : archive
+    └── Table : commandes_2020
+```
 
 ## Explorer des fichiers parquets
 
