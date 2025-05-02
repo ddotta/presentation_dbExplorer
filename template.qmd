@@ -149,14 +149,28 @@ con <- connection_open(Postgres(), user = infos_connection_prod[["USER"]],passwo
 ## Se connecter à une BDD sans dbExplorer (2/2)
 
 ![](img/balsaV2_resultat.png){fig-align="center"}
-## Explorer une base de données
+
+
+## Explorer une base de données (1/N)
 
 ```{.r}
-dbE
+## Création du fichier de connexion à postgre SQL 
+connector_file <- "./R/dbExplorer-connector/dbExplorerPgConnector.R"
+dbExplorer:::createPostgreSQLConnector(host = "postgresql-164525.projet-sortie-sas",
+                                       dbname = "dvf",
+                                       port = 5432,
+                                       file=connector_file)
 ```
+
+```{.r}
+## Lancement de l'application sur ce fichier de connexion. 
+ExplorerDonnees(connectorFile = connector_file)
+```
+
+Puis entrer le login & mot de passe d'accès à la BDD.
  
 
-=> Un "background job" se lance dans RStudio.
+=> **Un "background job"** se lance dans RStudio et **une application shiny** s'ouvre dans le navigateur.
 
 ## Création de fichiers parquet à partir d'une BDD
 
