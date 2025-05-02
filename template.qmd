@@ -1,0 +1,39 @@
+---
+title: "Le format Parquet"
+subtitle: "Un nouveau format pour les données"
+date: today
+date-format: "DD/MM/YYYY"
+author: "SSP/DEMESIS/BQIS/PAOS"
+description: |
+  Présentation du format Parquet au GUR de mars 2024
+
+slide-tone: false # for blind readers
+chalkboard: false # press the B key to toggle chalkboard
+transition: slide
+fig-cap-location: bottom
+self-contained: true
+
+toc: true
+toc-title: Sommaire
+toc-depth: 1
+toc-float: true
+
+# multiplex: true
+execute:
+  echo: false
+  warning: false
+  cache: false
+editor:
+  render-on-save: true
+---
+
+# Pourquoi Parquet ? {.backgroundTitre}
+
+## C'est quoi le format Parquet ?
+    
+- Un nouveau format de données ...
+
+  - ... qui compresse efficacement les fichiers
+  - ... interopérable
+  - conçu pour que les données soient chargées rapidement en mémoire
+
