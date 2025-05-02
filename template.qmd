@@ -1,11 +1,11 @@
 ---
-title: "Le format Parquet"
-subtitle: "Un nouveau format pour les données"
+title: "Le package dbExplorer"
+subtitle: "Un outil Shiny pour explorer les bases de données et les tables parquet"
 date: today
 date-format: "DD/MM/YYYY"
 author: "SSP/DEMESIS/BQIS/PAOS"
 description: |
-  Présentation du format Parquet au GUR de mars 2024
+  Présentation du package dbExplorer au GUR du 30 juin 2025
 
 slide-tone: false # for blind readers
 chalkboard: false # press the B key to toggle chalkboard
@@ -27,13 +27,32 @@ editor:
   render-on-save: true
 ---
 
-# Pourquoi Parquet ? {.backgroundTitre}
+## A quoi sert le package dbExplorer ?
 
-## C'est quoi le format Parquet ?
-    
-- Un nouveau format de données ...
+Un package R qui lance une application Shiny qui a **Plusieurs objectifs :**
 
-  - ... qui compresse efficacement les fichiers
-  - ... interopérable
-  - conçu pour que les données soient chargées rapidement en mémoire
+- Explorer rapidement les données présentes dans une base de données
+- Explorer rapidement le contenu des tables au format Parquet sur Cerise
+- Faire des manipulations de 1er niveau sur ces données
+
+=> Un package développé et maintenu par Adam Marsal du SSM Justice.
+
+  
+## Installation du package depuis Cerise
+
+
+```{.r}
+# install.packages("remotes")
+remotes::install_git("https://gitlab.forge.agriculture.rie.gouv.fr/ssp/bmis/packages/dbexplorer",
+                     dependencies = T,
+                     git = "external")
+```
+
+Comme n'importe quel autre package R, `{dbExplorer}` doit être chargé avec :
+
+
+```{.r}
+library(dbExplorer)
+```
+
 
