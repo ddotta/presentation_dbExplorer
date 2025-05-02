@@ -167,10 +167,34 @@ dbExplorer:::createPostgreSQLConnector(host = "postgresql-164525.projet-sortie-s
 ExplorerDonnees(connectorFile = connector_file)
 ```
 
-Puis entrer le login & mot de passe d'accès à la BDD.
- 
-
 => **Un "background job"** se lance dans RStudio et **une application shiny** s'ouvre dans le navigateur.
+
+## Explorer une base de données (2/N)
+
+Entrer le login & mot de passe d'accès à la BDD :  
+
+![](img/identification_dbExplorer.png){fig-align="center"}
+
+## Explorer une base de données (3/N)
+
+![](img/image_explorateur_bdd.png){fig-align="center"}
+
+## Démonstration 
+
+<br>
+<br>
+<br>
+<br>
+
+Démo sur Cerise ! 
+
+## Quelques raccourcis/astuces utiles !
+
+- Maintenir la touche "Tab" enfoncée pour sélectionner les colonnes interactivement  
+- Cocher la case "Cliquer pour filtrer" puis :  
+    - Cliquer une fois pour appliquer le filtre sur la table
+    - Cliquer deux fois pour appliquer la négation du filtre sur la table
+- Pour télécharger les jeux de données au format csv, cliquer en haut à droite sur le bouton "télécharger" ou faire Ctrl + S.
 
 ## Création de fichiers parquet à partir d'une BDD
 
