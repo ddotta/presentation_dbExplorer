@@ -95,11 +95,11 @@ La fenêtre suivante s'affiche :
 
 En fonction des choix effectués au lancement du background job, les résultats seront (ou pas) disponibles dans l'environnement global de la session R.  
 
-![](img/Env_background_jobs.png)
+![](img/Env_background_jobs.png){fig-align="center"}
 
 Si vous avez choisi de stocker les résultats dans un objet "results", voici comment y accéder :  
 
-![](img/get_env_background_jobs.png)
+![](img/get_env_background_jobs.png){fig-align="center"}
 
 ## Structure d'une base de données relationnelles
 
@@ -124,15 +124,31 @@ Base de données : vente_en_ligne
     └── Table : commandes_2020
 ```
 
-## Explorer des fichiers parquets
+## Se connecter à une BDD sans dbExplorer (1/2)
 
-```{.r}
-dbExplorer::ExplorerDossiers("~/CERISE/03-Espace-de-Diffusion/030_Structures_exploitations/3020_Recensements/RA_2010/")
+Exemple avec BDD PostgreSQL :  
+
+```{r}
+library(connections)
+library(RPostgres)
+
+### Chargement des infos de connection
+infos_connection_prod <- read_delim("infos_connection.csv", 
+                                    delim = ";", escape_double = FALSE, trim_ws = TRUE,
+                                    show_col_types = FALSE) %>% 
+  filter(ENV == "PROD")
+
+### Connexion à la BDD
+con <- connection_open(Postgres(), user = infos_connection_prod[["USER"]],password = rawToChar(openssl::base64_decode(infos_connection_prod[["PWD"]])),host = infos_connection_prod[["DB_URL"]], dbname = infos_connection_prod[["DATABASE"]],port = infos_connection_prod[["PORT"]])
 ```
 
-=> Un "background job" se lance dans RStudio.
+=> La structure de la BDD est visible dans l'onglet `"Connections"` de RStudio :  
 
+![](img/balsaV2.png){fig-align="center"}
 
+## Se connecter à une BDD sans dbExplorer (2/2)
+
+![](img/balsaV2_resultat.png){fig-align="center"}
 ## Explorer une base de données
 
 ```{.r}
@@ -140,6 +156,15 @@ dbE
 ```
  
 
+=> Un "background job" se lance dans RStudio.
+
 ## Création de fichiers parquet à partir d'une BDD
 
 TO DO
+
+
+## Explorer des fichiers parquets
+
+```{.r}
+dbExplorer::ExplorerDossiers("~/CERISE/03-Espace-de-Diffusion/030_Structures_exploitations/3020_Recensements/RA_2010/")
+```
