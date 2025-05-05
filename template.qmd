@@ -126,7 +126,7 @@ Base de données : vente_en_ligne
     └── Table : commandes_2020
 ```
 
-## Se connecter à une BDD sans dbExplorer (1/2)
+## Se connecter à une BDD sans dbExplorer (1/3)
 
 Exemple avec BDD PostgreSQL :  
 
@@ -150,13 +150,19 @@ con <- connection_open(
     port = infos_connection_prod[["PORT"]])
 ```
 
+
+
+## Se connecter à une BDD sans dbExplorer (2/3)
+
 => La structure de la BDD est visible dans l'onglet `"Connections"` de RStudio :  
 
 ![](img/balsaV2.png){fig-align="center"}
 
-## Se connecter à une BDD sans dbExplorer (2/2)
+## Se connecter à une BDD sans dbExplorer (3/3)
 
-![](img/balsaV2_resultat.png){fig-align="center"}
+![](img/balsaV2_onglet_connections.png){fig-align="center"}
+<br>
+![](img/balsaV2_affichage_table.png){fig-align="center"}
 
 
 ## Explorer une base de données (1/N)
@@ -170,10 +176,14 @@ dbExplorer:::createPostgreSQLConnector(host = "postgresql-164525.projet-sortie-s
                                        file=connector_file)
 ```
 
+<br>
+
 ```{.r}
 ## Lancement de l'application sur ce fichier de connexion. 
 ExplorerDonnees(connectorFile = connector_file)
 ```
+
+<br>
 
 => **Un "background job"** se lance dans RStudio et **une application shiny** s'ouvre dans le navigateur.
 
@@ -202,7 +212,7 @@ Démo sur Cerise !
 - Cocher la case "Cliquer pour filtrer" puis :  
     - Cliquer une fois pour appliquer le filtre sur la table
     - Cliquer deux fois pour appliquer la négation du filtre sur la table
-- Pour télécharger les jeux de données au format csv, cliquer en haut à droite sur le bouton "télécharger" ou faire **Ctrl + S**.
+- Pour télécharger les jeux de données au format csv, cliquer en haut à droite sur le bouton **"télécharger"** ou faire **Ctrl + S**.
 
 ## Création de fichiers parquet à partir d'une BDD
 
