@@ -55,7 +55,7 @@ Comme n'importe quel autre package R, `{dbExplorer}` doit être chargé avec :
 library(dbExplorer)
 ```
 
-Avant d'explorer ce package, 2 concepts théoriques sont nécessaires.
+Avant d'explorer ce package, **2 concepts théoriques sont nécessaires**.
 
 ## Les "Background jobs" de RStudio
 
@@ -91,6 +91,8 @@ Ce script peut être lancé via un background job en cliquant sur le bouton `"St
 La fenêtre suivante s'affiche :  
 
 ![](img/fenetre_background_jobs.png){fig-align="center"}
+
+
 ## Exemple de Background jobs (3/3)
 
 En fonction des choix effectués au lancement du background job, les résultats seront (ou pas) disponibles dans l'environnement global de la session R.  
@@ -139,7 +141,13 @@ infos_connection_prod <- read_delim("infos_connection.csv",
   filter(ENV == "PROD")
 
 ### Connexion à la BDD
-con <- connection_open(Postgres(), user = infos_connection_prod[["USER"]],password = rawToChar(openssl::base64_decode(infos_connection_prod[["PWD"]])),host = infos_connection_prod[["DB_URL"]], dbname = infos_connection_prod[["DATABASE"]],port = infos_connection_prod[["PORT"]])
+con <- connection_open(
+    Postgres(), 
+    user = infos_connection_prod[["USER"]],
+    password = rawToChar(openssl::base64_decode(infos_connection_prod[["PWD"]])),
+    host = infos_connection_prod[["DB_URL"]], 
+    dbname = infos_connection_prod[["DATABASE"]],
+    port = infos_connection_prod[["PORT"]])
 ```
 
 => La structure de la BDD est visible dans l'onglet `"Connections"` de RStudio :  
