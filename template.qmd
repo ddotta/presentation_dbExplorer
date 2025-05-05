@@ -29,7 +29,7 @@ editor:
 
 ## A quoi sert le package dbExplorer ?
 
-Un package R qui lance une application Shiny qui a **Plusieurs objectifs :**
+Un package R qui lance une application Shiny qui a **plusieurs objectifs :**
 
 - Explorer rapidement les données présentes dans une base de données
 - Explorer rapidement le contenu des tables au format Parquet sur Cerise
