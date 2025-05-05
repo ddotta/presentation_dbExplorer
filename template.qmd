@@ -194,11 +194,13 @@ Démo sur Cerise !
 - Cocher la case "Cliquer pour filtrer" puis :  
     - Cliquer une fois pour appliquer le filtre sur la table
     - Cliquer deux fois pour appliquer la négation du filtre sur la table
-- Pour télécharger les jeux de données au format csv, cliquer en haut à droite sur le bouton "télécharger" ou faire Ctrl + S.
+- Pour télécharger les jeux de données au format csv, cliquer en haut à droite sur le bouton "télécharger" ou faire **Ctrl + S**.
 
 ## Création de fichiers parquet à partir d'une BDD
 
 TO DO
+
++ A TESTER SUR UNE BDD SQLITE
 
 
 ## Explorer des fichiers parquets
