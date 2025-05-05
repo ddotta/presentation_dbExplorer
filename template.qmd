@@ -128,7 +128,7 @@ Base de données : vente_en_ligne
 
 Exemple avec BDD PostgreSQL :  
 
-```{r}
+```{.r}
 library(connections)
 library(RPostgres)
 
