@@ -216,7 +216,7 @@ Démo sur Cerise !
 ## Quelques raccourcis/astuces utiles !
 
 - Maintenir la touche "Tab" enfoncée pour **sélectionner les colonnes interactivement**  
-- Cocher la case "Cliquer pour filtrer" puis :  
+- Pour filtrer les lignes, cocher la case "Cliquer pour filtrer" puis :  
     - Cliquer une fois pour appliquer le filtre sur les lignes de la table
     - Cliquer deux fois pour appliquer la négation du filtre sur les lignes de la table
 - **Pour télécharger les jeux de données** au format csv, cliquer en haut à droite sur le bouton **"télécharger"** ou faire **Ctrl + S**.
