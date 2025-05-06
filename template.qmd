@@ -165,7 +165,7 @@ con <- connection_open(
 ![](img/balsaV2_affichage_table.png){fig-align="center"}
 
 
-## Explorer une base de données (1/N)
+## Explorer une base de données PostgreSQL (1/N)
 
 ```{.r}
 ## Installation du package 
@@ -194,13 +194,13 @@ ExplorerDonnees(connectorFile = connector_file)
 
 => **Un "background job"** se lance dans RStudio et **une application shiny** s'ouvre dans le navigateur.
 
-## Explorer une base de données (2/N)
+## Explorer une base de données PostgreSQL (2/N)
 
 Entrer le login & mot de passe d'accès à la BDD :  
 
 ![](img/identification_dbExplorer.png){fig-align="center"}
 
-## Explorer une base de données (3/N)
+## Explorer une base de données PostgreSQL (3/N)
 
 ![](img/image_explorateur_bdd.png){fig-align="center"}
 
@@ -253,6 +253,17 @@ exportPgToParquet(con,"entite_surface")
 ![](img/export_parquet.png){fig-align="center"}
 <br>
 ![](img/export_parquet_explorateur.png){fig-align="center"}
+
+## Explorer une base de données SQLite
+
+```{.r}
+library(RSQLite)
+connector_file <- "R/dbExplorer-connector/connector_sqlite.R"
+dbExplorer::ExplorerDonnees(connectorFile = "R/dbExplorer-connector/connector_sqlite.R")
+```
+<br>
+
+![](img/explorateur_sqlite.png){fig-align="center"}
 
 ## Explorer des fichiers parquets
 
