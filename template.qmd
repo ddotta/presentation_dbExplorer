@@ -168,6 +168,13 @@ con <- connection_open(
 ## Explorer une base de données (1/N)
 
 ```{.r}
+## Installation du package 
+remotes::install_git("https://gitlab.forge.agriculture.rie.gouv.fr/ssp/bmis/packages/dbexplorer",
+                     dependencies = T,
+                     git = "external")
+```
+
+```{.r}
 ## Création du fichier de connexion à postgre SQL 
 connector_file <- "./R/dbExplorer-connector/dbExplorerPgConnector.R"
 dbExplorer:::createPostgreSQLConnector(host = "postgresql-164525.projet-sortie-sas",
