@@ -1,6 +1,7 @@
-# Présentation du package R {dbExplorer}
+# Présentation des packages R {dbExplorer} et {dm}
 
-Support de présentation du package R **dbExplorer** d'Adam Marsal et de ses possibilités au groupe des utilisateurs de R du @SSM-Agriculture (juin 2025).  
+Support de présentation du package R **dbExplorer** d'Adam Marsal et de ses possibilités au groupe des utilisateurs de R du @SSM-Agriculture (juin 2025). 
+Il est complété par une approche succinte du package **dm** de cynkra.
 
 Ce diaporama couvre également les thématiques des `Background jobs` de RStudio et quelques concepts liés aux bases de données.  
 
