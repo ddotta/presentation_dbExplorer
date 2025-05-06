@@ -211,7 +211,7 @@ Entrer le login & mot de passe d'accès à la BDD :
 <br>
 <br>
 
-Démo sur Cerise ! 
+Démo sur Cerise ! (voir rép. `dbExplorer_test`)
 
 ## Quelques raccourcis/astuces utiles !
 
@@ -221,18 +221,46 @@ Démo sur Cerise !
     - Cliquer deux fois pour appliquer la négation du filtre sur les lignes de la table
 - **Pour télécharger les jeux de données** au format csv, cliquer en haut à droite sur le bouton **"télécharger"** ou faire **Ctrl + S**.
 
-## Création de fichiers parquet à partir d'une BDD
+## Création de fichiers parquet à partir d'une BDD (1/2)
 
-TO DO
+```{.r}
+### Connexion à la BDD
+con <- connection_open(
+    Postgres(), 
+    user = infos_connection_prod[["USER"]],
+    password = rawToChar(openssl::base64_decode(infos_connection_prod[["PWD"]])),
+    host = infos_connection_prod[["DB_URL"]], 
+    dbname = infos_connection_prod[["DATABASE"]],
+    port = infos_connection_prod[["PORT"]])
+```
 
-+ A TESTER SUR UNE BDD SQLITE
+Appel de la fonction `exportPgToParquet.R` :  
 
+```{.r}
+source("R/exportPgToParquet.R")
+```
+
+## Création de fichiers parquet à partir d'une BDD (2/2)
+
+```{.r}
+# Export de la table categorie_juridique
+exportPgToParquet(con,"categorie_juridique")
+# Export de la table entite_surface
+exportPgToParquet(con,"entite_surface")
+```
+<br>
+
+![](img/export_parquet.png){fig-align="center"}
+<br>
+![](img/export_parquet_explorateur.png){fig-align="center"}
 
 ## Explorer des fichiers parquets
 
 ```{.r}
 dbExplorer::ExplorerDossiers("~/CERISE/03-Espace-de-Diffusion/030_Structures_exploitations/3020_Recensements/RA_2010/")
 ```
+
+![](img/explorateur_dossier.png){fig-align="center"}
 
 ## Pour en savoir plus
 
