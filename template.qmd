@@ -275,4 +275,5 @@ dbExplorer::ExplorerDossiers("~/CERISE/03-Espace-de-Diffusion/030_Structures_exp
 
 ## Pour en savoir plus
 
+- [Package dm](https://dm.cynkra.com/)
 - [Fiche utilitr](https://book.utilitr.org/03_Fiches_thematiques/Fiche_connexion_bdd.html) sur l'utilisation des bases de données avec R.
