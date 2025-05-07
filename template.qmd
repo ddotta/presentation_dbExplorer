@@ -273,6 +273,69 @@ dbExplorer::ExplorerDossiers("~/CERISE/03-Espace-de-Diffusion/030_Structures_exp
 
 ![](img/explorateur_dossier.png){fig-align="center"}
 
+## Quelques compléments sur les manipulations de BDD avec R (1/2)
+
+Prenons une base SQLite :
+
+```{.r}
+library(RSQLite)
+
+## Connexion à la BDD
+chemin_IPPAP_dev <- "~/CERISE/02-Espace-de-Production/090_Prix/9010_IPPAP/IPPAP_app/dev/App/donnees/IPPAP.sqlite"
+db_IPPAP <- dbConnect(RSQLite::SQLite(), dbname = chemin_IPPAP_dev)
+```
+
+<br>
+
+Quelques manipulations possibles avec des fonctions R :  
+
+```{.r}
+## Pour afficher la liste des tables de la base de donnees
+dbListTables(db_IPPAP)
+
+> [1] "COEFF_RACCORDEMENT"   "DATES"                "NOMENCLATURE_BDC"    
+[4] "POND_MOIS_COMPOSANTS" "PRIX"                 "QUANTITES"           
+[7] "REFERENTIEL_IPPAP"    "VIVANTES"  
+```
+
+## Quelques compléments sur les manipulations de BDD avec R (2/2)
+
+```{.r}
+## Pour afficher les colonnes d'une table
+dbListFields(db_IPPAP,"PRIX")
+> [1] "CODE_S"     "2019-01-01" "2019-02-01" "2019-03-01" "2019-04-01" "2019-05-01"
+  [7] "2019-06-01" "2019-07-01" "2019-08-01" "2019-09-01" "2019-10-01" "2019-11-01"
+ [13] "2019-12-01" "2020-01-01" "2020-02-01" "2020-03-01" "2020-04-01" "2020-05-01"
+ [19] "2020-06-01" "2020-07-01" "2020-08-01" "2020-09-01" "2020-10-01" "2020-11-01"
+ ...
+```
+
+<br>
+
+```{.r}
+## Pour lire une table
+verif_PRIX <- dbReadTable(db_IPPAP,"PRIX")
+head(verif_PRIX)[,1:5]
+    CODE_S  2019.01.01  2019.02.01  2019.03.01  2019.04.01
+1 10100046       1.839       1.794       1.700       1.729
+2  1120057          NA          NA       0.606       0.516
+3  1140001          NA          NA          NA          NA
+4  1150001          NA          NA          NA          NA
+5  1210057          NA          NA       0.555       0.488
+6 12120104          NA          NA          NA          NA
+```
+
+
+## Aperçu du package {dm}
+
+
+Installation et chargement :  
+
+```{.r}
+install.packages('dm')
+
+```
+
 ## Pour en savoir plus
 
 - [Package dm](https://dm.cynkra.com/)
