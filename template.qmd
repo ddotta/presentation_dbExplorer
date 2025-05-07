@@ -333,8 +333,26 @@ Installation et chargement :
 
 ```{.r}
 install.packages('dm')
-
+library(dm)
 ```
+
+Création d'un objet dm :
+
+```{.r}
+fin_dm <- dm_from_src(db_IPPAP)
+fin_dm
+```
+
+```{.r}
+── Table source ───────────────────────────────────────────────────────────────────────────
+src:  sqlite 3.47.1 [/var/data/nfs/CERISE/02-Espace-de-Production/090_Prix/9010_IPPAP/IPPAP_app/dev/App/donnees/IPPAP.sqlite]
+── Metadata ───────────────────────────────────────────────────────────────────────────────
+Tables: `COEFF_RACCORDEMENT`, `DATES`, `NOMENCLATURE_BDC`, `POND_MOIS_COMPOSANTS`, `PRIX`, … (8 total)
+Columns: 511
+Primary keys: 0
+Foreign keys: 0
+```
+
 
 ## Pour en savoir plus
 
