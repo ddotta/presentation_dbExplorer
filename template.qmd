@@ -413,6 +413,21 @@ dplyr::count(fin_dm$REFERENTIEL_IPPAP,LIB_PRODUIT)
 # ℹ Use `print(n = ...)` to see more rows
 ```
 
+## Visualiser les relations entre les tables avec {dm}
+
+Exemple issu de la documentation avec `dm_draw()`...  
+
+```{.r}
+dm %>%
+  dm_draw()
+```
+
+... qui permet de visualiser les relations entre les tables :  
+
+![](img/Visualisation_data_model.png){fig-align="center"}
+
+
+Le package {dm} est très riche ! D'autres fonctionnalités pourront être abordés lors d'un futur GUR !  
 
 
 ## Pour en savoir plus
