@@ -277,10 +277,10 @@ dbExplorer::ExplorerDossiers("~/CERISE/03-Espace-de-Diffusion/030_Structures_exp
 
 Prenons une base SQLite :
 
+- Connexion à la BDD
 ```{.r}
 library(RSQLite)
 
-## Connexion à la BDD
 chemin_IPPAP_dev <- "~/CERISE/02-Espace-de-Production/090_Prix/9010_IPPAP/IPPAP_app/dev/App/donnees/IPPAP.sqlite"
 db_IPPAP <- dbConnect(RSQLite::SQLite(), dbname = chemin_IPPAP_dev)
 ```
@@ -289,8 +289,9 @@ db_IPPAP <- dbConnect(RSQLite::SQLite(), dbname = chemin_IPPAP_dev)
 
 Quelques manipulations possibles avec des fonctions R :  
 
+- Pour afficher la liste des tables de la base de donnees
+
 ```{.r}
-## Pour afficher la liste des tables de la base de donnees
 dbListTables(db_IPPAP)
 
 > [1] "COEFF_RACCORDEMENT"   "DATES"                "NOMENCLATURE_BDC"    
@@ -300,8 +301,9 @@ dbListTables(db_IPPAP)
 
 ## Quelques compléments sur les manipulations de BDD avec R (2/2)
 
+- Pour afficher les colonnes d'une table
+
 ```{.r}
-## Pour afficher les colonnes d'une table
 dbListFields(db_IPPAP,"PRIX")
 > [1] "CODE_S"     "2019-01-01" "2019-02-01" "2019-03-01" "2019-04-01" "2019-05-01"
   [7] "2019-06-01" "2019-07-01" "2019-08-01" "2019-09-01" "2019-10-01" "2019-11-01"
@@ -312,8 +314,9 @@ dbListFields(db_IPPAP,"PRIX")
 
 <br>
 
+- Pour lire une table 
+
 ```{.r}
-## Pour lire une table
 verif_PRIX <- dbReadTable(db_IPPAP,"PRIX")
 head(verif_PRIX)[,1:5]
     CODE_S  2019.01.01  2019.02.01  2019.03.01  2019.04.01
@@ -326,7 +329,7 @@ head(verif_PRIX)[,1:5]
 ```
 
 
-## Aperçu du package {dm}
+## Utilisation basique du package {dm}
 
 
 Installation et chargement :  
@@ -352,6 +355,64 @@ Columns: 511
 Primary keys: 0
 Foreign keys: 0
 ```
+
+## Aperçu de quelques fonctions de {dm} (1/2)
+
+- Pour afficher la liste des tables de la base de donnees
+
+```{.r}
+names(fin_dm)
+
+> [1] "COEFF_RACCORDEMENT"   "DATES"                "NOMENCLATURE_BDC"    
+[4] "POND_MOIS_COMPOSANTS" "PRIX"                 "QUANTITES"           
+[7] "REFERENTIEL_IPPAP"    "VIVANTES"  
+```
+<br>
+
+- Pour lire une table
+
+```{.r}
+fin_dm$PRIX
+# Source:   table<`PRIX`> [?? x 121]
+# Database: sqlite 3.47.1 [/var/data/nfs/CERISE/02-Espace-de-Production/090_Prix/9010_IPPAP/IPPAP_app/dev/App/donnees/IPPAP.sqlite]
+   CODE_S   `2019-01-01` `2019-02-01` `2019-03-01` `2019-04-01` `2019-05-01` `2019-06-01` `2019-07-01` `2019-08-01`
+   <chr>           <dbl>        <dbl>        <dbl>        <dbl>        <dbl>        <dbl>        <dbl>        <dbl>
+ 1 10100046        1.84         1.79         1.7          1.73         1.75        NA           NA           NA    
+ 2 1120057        NA           NA            0.606        0.516        0.504        0.531        0.75         0.657
+ 3 1140001        NA           NA           NA           NA            0.162        0.295        0.208        0.203
+ 4 1150001        NA           NA           NA           NA            0.164        0.202        0.172        0.16 
+```
+
+
+## Aperçu de quelques fonctions de {dm} (2/2)
+
+- Pour afficher les colonnes d'une table
+```{.r}
+colnames(fin_dm$PRIX)
+> [1] "CODE_S"     "2019-01-01" "2019-02-01" "2019-03-01" "2019-04-01" "2019-05-01"
+  [7] "2019-06-01" "2019-07-01" "2019-08-01" "2019-09-01" "2019-10-01" "2019-11-01"
+ [13] "2019-12-01" "2020-01-01" "2020-02-01" "2020-03-01" "2020-04-01" "2020-05-01"
+ [19] "2020-06-01" "2020-07-01" "2020-08-01" "2020-09-01" "2020-10-01" "2020-11-01"
+ ...
+```
+
+- Pour faire des comptages sur une table
+```{.r}
+dplyr::count(fin_dm$REFERENTIEL_IPPAP,LIB_PRODUIT)
+
+# Source:   SQL [?? x 2]
+# Database: sqlite 3.47.1 [/var/data/nfs/CERISE/02-Espace-de-Production/090_Prix/9010_IPPAP/IPPAP_app/dev/App/donnees/IPPAP.sqlite]
+   LIB_PRODUIT             n
+   <chr>               <int>
+ 1 Abricot                12
+ 2 Ail                     1
+ 3 Artichaut               7
+ 4 Asperge                12
+ 5 Aubergine               2
+# ℹ more rows
+# ℹ Use `print(n = ...)` to see more rows
+```
+
 
 
 ## Pour en savoir plus
