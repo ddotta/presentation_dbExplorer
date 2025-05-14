@@ -165,7 +165,7 @@ con <- connection_open(
 ![](img/balsaV2_affichage_table.png){fig-align="center"}
 
 
-## Explorer une base de données PostgreSQL (1/N)
+## Explorer une base de données PostgreSQL (1/4)
 
 ```{.r}
 ## Installation du package 
@@ -194,13 +194,21 @@ ExplorerDonnees(connectorFile = connector_file)
 
 => **Un "background job"** se lance dans RStudio et **une application shiny** s'ouvre dans le navigateur.
 
-## Explorer une base de données PostgreSQL (2/N)
+## Explorer une base de données PostgreSQL (2/4)
 
 Entrer le login & mot de passe d'accès à la BDD :  
 
 ![](img/identification_dbExplorer.png){fig-align="center"}
 
-## Explorer une base de données PostgreSQL (3/N)
+## Explorer une base de données PostgreSQL (3/4)
+
+On peut aussi supprimer la fenêtre de login en modifiant le fichier `dbExplorerPgConnector.R`.   
+
+<br>
+
+![](img/no_login.png){fig-align="center"}
+
+## Explorer une base de données PostgreSQL (4/4)
 
 ![](img/image_explorateur_bdd.png){fig-align="center"}
 
