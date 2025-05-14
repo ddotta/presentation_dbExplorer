@@ -223,11 +223,12 @@ Démo sur Cerise ! (voir rép. `dbExplorer_test`)
 
 ## Quelques raccourcis/astuces utiles !
 
-- Maintenir la touche "Tab" enfoncée pour **sélectionner les colonnes interactivement**  
+- Maintenir la touche "Ctrl" enfoncée pour **sélectionner les colonnes interactivement**  
 - Pour filtrer les lignes, cocher la case "Cliquer pour filtrer" puis :  
     - Cliquer une fois pour appliquer le filtre sur les lignes de la table
     - Cliquer deux fois pour appliquer la négation du filtre sur les lignes de la table
 - **Pour télécharger les jeux de données** au format csv, cliquer en haut à droite sur le bouton **"télécharger"** ou faire **Ctrl + S**.
+- Appuyer sur le bouton "+" pour travailler sur différents onglets (pour différentes tables).
 
 ## Création de fichiers parquet à partir d'une BDD (1/2)
 
